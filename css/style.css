@@ -191,6 +191,22 @@ body {
   opacity: 0;
 }
 
+#container .choose--container .choose--hold input.choose::-webkit-input-placeholder {
+  opacity: .5;
+}
+
+#container .choose--container .choose--hold input.choose:-ms-input-placeholder {
+  opacity: .5;
+}
+
+#container .choose--container .choose--hold input.choose::-ms-input-placeholder {
+  opacity: .5;
+}
+
+#container .choose--container .choose--hold input.choose::placeholder {
+  opacity: .5;
+}
+
 #container .choose--container .choose--hold::after {
   content: '';
   position: absolute;

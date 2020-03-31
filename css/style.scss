@@ -166,6 +166,10 @@ body {
 				&:focus::placeholder {
 					opacity: 0;
 				}
+
+				&::placeholder {
+					opacity: .5;
+				}
 			}
 
 			&::after {
