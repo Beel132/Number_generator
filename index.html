@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/4603725681.js"></script>
+
+    <title>Number generator</title>
+</head>
+
+<body>
+    <section id="container">
+        <!-- Toggle mode -->
+        <div class="toggle--container">
+            <div class="toggle--icon" onclick="toggle_mode()">
+                <i class="fas fa-moon fa-lg"></i>
+            </div>
+        </div>
+        <!--  -->
+
+        <h1 class="title">Number Generator</h1>
+
+        <span class="highlight" id="random_number">0</span>
+
+        <div class="choose--container">
+            <div class="choose--hold">
+                <p>From</p>
+                <input type="number" class="choose" placeholder="0" required id="min" data-default='0' />
+            </div>
+
+            <div class="choose--hold">
+                <p>To</p>
+                <input type="number" class="choose" placeholder="100" required id="max" data-default='100' />
+            </div>
+        </div>
+
+        <button class="btn" id="generate">Generate</button>
+        <p class="desc">or <span class="color">enter</span></p>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

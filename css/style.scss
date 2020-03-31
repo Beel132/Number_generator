@@ -1,0 +1,265 @@
+$primary: #3be8b0;
+$light_primary: #59ffcb;
+$secondary: #6a67ce;
+$tertiary: #fc636b;
+
+:root {
+	--fixed-light: #f2f2f2;
+	--fixed-dark: #2c3e50;
+
+	--light-color: #f2f2f2;
+	--dark-color: #2c3e50;
+
+	--shadow: 44, 62, 80;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+// default functions
+
+@mixin flex {
+	display: flex !important;
+
+	flex-direction: inherit;
+	justify-content: center;
+	align-items: center;
+}
+
+//
+
+::selection {
+	background-color: $tertiary;
+	color: #fff;
+}
+
+// default classes
+
+.none {
+	display: none !important;
+}
+
+.color {
+	color: $primary !important;
+	font-weight: 500 !important;
+	letter-spacing: .5px;
+}
+
+.title {
+	user-select: none;
+	font-size: 2rem !important;
+	margin: 15px 0 !important;
+}
+
+.desc {
+	color: rgba($color: var(--dark-color), $alpha: .75) !important;
+	font-weight: 400 !important;
+}
+
+.highlight {
+	font-size: 12rem;
+}
+
+.btn {
+	outline: none;
+	cursor: pointer;
+	padding: 10px 35px;
+	font-size: 1rem;
+	border: none;
+	background-color: $primary;
+	color: var(--fixed-light);
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 5px;
+	box-shadow: 5px 5px 20px rgba($color: $primary, $alpha: .25);
+
+	transition: all .2s ease-in-out;
+
+	margin: 10px 0;
+
+	&:hover {
+		background-color: $light_primary;
+	}
+}
+
+//
+
+body {
+	height: 100vh;
+
+	font-family: 'Fira Sans', sans-serif;
+
+	background: var(--light-color);
+	// background: -webkit-linear-gradient(to left, #ffffff, #ece9e6);
+	// background: linear-gradient(to left, #ffffff, #ece9e6);
+
+	transition: all .2s ease-in-out;
+}
+
+#container {
+	height: 100%;
+	width: 50%;
+
+	color: var(--dark-color);
+
+	text-align: center;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.title {
+		color: rgba($color: var(--dark-color), $alpha: .75);
+	}
+
+	.highlight {
+		color: $primary;
+		letter-spacing: 10px;
+		font-weight: bold;
+
+		text-shadow: 5px 5px 15px rgba($color: $light_primary, $alpha: .25);
+	}
+
+	.choose--container {
+		width: 100%;
+
+		@include flex;
+		flex-direction: row;
+		justify-content: space-around;
+
+		.choose--hold {
+			position: relative;
+
+			@include flex;
+			flex-direction: column;
+			margin: 15px 0 50px 0;
+			font-weight: bold;
+			letter-spacing: 1px;
+
+			input.choose {
+				margin: 10px 15px 0 10px;
+
+				width: 200px;
+				min-width: 175px;
+				outline: none;
+				border: none;
+				padding: 10px 0;
+				border-radius: 5px 5px 0 0;
+				box-shadow: 5px 5px 10px rgba($color: $secondary, $alpha: .25);
+				text-align: center;
+				font-size: 1.2rem;
+				font-weight: 500;
+				letter-spacing: .5px;
+
+				&::-webkit-outer-spin-button,
+				&::-webkit-inner-spin-button,
+				& {
+					-webkit-appearance: none;
+					-moz-appearance: textfield;
+				}
+
+				&:focus::placeholder {
+					opacity: 0;
+				}
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				background-color: $primary;
+				width: calc(100% - 25px);
+				height: 3px;
+
+				border-radius: 50px;
+
+				transform: scale(0);
+				transform-origin: left;
+
+				bottom: -3px;
+				left: 10px;
+
+				transition: all .2s ease-in-out;
+			}
+
+			&:focus-within::after {
+				transform: scale(1);
+				transform-origin: right;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.choose--container {
+		flex-direction: column !important;
+	}
+
+	.highlight {
+		font-size: 8rem;
+	}
+
+	.toggle--container {
+		right: 50% !important;
+		transform: translate(50%);
+	}
+}
+
+.toggle--container {
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+
+	padding: 10px;
+	margin: 15px 0;
+	@include flex;
+	flex-direction: column;
+
+	.toggle--icon {
+		cursor: pointer;
+
+		width: 50px;
+		height: 50px;
+		color: var(--light-color);
+		background: var(--dark-color);
+		box-shadow: 5px 5px 10px rgba(var(--shadow), .15);
+
+		border-radius: 100px;
+
+		transition: color .3s ease-in-out, background-color .3s ease-in-out;
+
+		@include flex;
+
+		&:hover {
+			color: var(--dark-color);
+			background-color: var(--light-color);
+		}
+	}
+
+	span {
+		user-select: none;
+		margin: 10px 0;
+		font-weight: bold;
+		letter-spacing: .5px;
+	}
+
+	.toggle--icon.dark {
+		color: var(--light-color) !important;
+		background-color: var(--dark-color) !important;
+
+		&:hover {
+			color: var(--dark-color) !important;
+			background-color: var(--light-color) !important;
+		}
+	}
+}
+
+.dark-mode {
+	--dark-color: #f2f2f2;
+	--light-color: #2c3e50;
+	--shadow: 242, 242, 242;
+}
